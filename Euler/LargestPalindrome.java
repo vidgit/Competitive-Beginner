@@ -17,10 +17,12 @@ public class LargestPalidrome {
         int prod=0,fin=0;
         for(int i=100;i<=999;i++){
             for(int j=100;j<=999;j++){
-                prod=i*j;
-                if(prod==reverse(prod)&&prod<n)
-                if(prod>fin)
-                    fin=prod;
+                if(i%11==0||j%11==0){
+                    prod=i*j;
+                    if(prod==reverse(prod)&&prod<n)
+                    if(prod>fin)
+                        fin=prod;
+                }
             }
         }
         return fin;
