@@ -1,3 +1,5 @@
+import java.io.*;
+
 class Node
 {
 	private int data;
@@ -24,7 +26,7 @@ class Node
 		this.data = data;
 	}
 	
-	public void setNext(int next)
+	public void setNext(Node next)
 	{
 		this.next = next;
 	}
@@ -40,30 +42,35 @@ class LinkedList
 		head=null;
 	}
 	
-	public Node addNext(int data)
+	public Node getHead()
+	{
+		return this.head;
+	}
+	
+	public Node add(int data)
 	{
 		if(head == null)
 		{
 			head = new Node(data);
-			return head;
+			return getHead();
 		}
 		
-		if(head.next == null)
+		if(head.getNext() == null)
 		{
-			head.next = new Node(data);
-			return head;
+			head.setNext(new Node(data));
+			return getHead();
 		}
 		
 		Node temp=head;
 		
-		while(temp.next != null)
+		while(temp.getNext() != null)
 		{
-			temp = temp.next;
+			temp = temp.getNext();
 		}
 		
-		temp.next = new Node(data);
+		temp.setNext( new Node(data));
 		
-		return head;
+		return getHead();
 		
 	}
 	
@@ -72,20 +79,57 @@ class LinkedList
 		if(head == null)
 			return -1;
 		
-		if(head.data == data)
+		if(head.getData() == data)
 			return 0;
 		
 		Node temp = head;
 		int index=1;
-		while(temp.next != null)
+		while(temp.getNext() != null)
 		{
-			if(temp.data == data)
+			if(temp.getData() == data)
 				return index;
-			temp=temp.next;
+			temp=temp.getNext();
 			index++;
-			
 		}
 		
+		return -1;
+
+	}
+}
+
+public class LinkedListCreation
+{
+	public static void main(String args[])throws IOException
+	{
+		LinkedList list = new LinkedList();
+		for(int i = 0; i < 10; i++)
+		{
+			list.add(i + 1);
+		}
 		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("Enter value to be searched:\n Enter non number to exit.\n");
+		int t = 0;
+		
+		try 
+		{
+			while(true)
+			{
+				t = Integer.parseInt(br.readLine());
+				int i = list.getIndex(t);
+				if(i == -1)
+				{
+					System.out.println("Value not found.");
+				}
+				else
+				{
+					System.out.println("Value has index: " + i);
+				}
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Exiting...");
+		}
 	}
 }
