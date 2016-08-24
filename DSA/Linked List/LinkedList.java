@@ -47,6 +47,23 @@ class LinkedList {
 		return getHead();
 	}
 
+	public Node insert(int position,int data, Node head)
+	{
+		Node temp = head;
+	    if(head == null)
+	    {
+	        head = new Node(data);
+	        return getHead();
+	    }
+	    for(int i=0; i<position; i++)
+	    {
+	        temp=temp.getNext();
+	    }
+	    Node node=new Node(data);
+	    node.setNext(temp.getNext());
+	    temp.setNext(node);
+	    return getHead();
+	}
 	public void setHead(Node head) {
 		this.head = head;
 	}
