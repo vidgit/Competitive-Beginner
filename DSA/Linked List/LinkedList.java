@@ -32,6 +32,24 @@ class LinkedList {
 		return getHead();
 
 	}
+	
+	public Node addFirst(int data){
+		
+		if(head == null)
+		{
+			head = new Node(data);
+			return getHead();
+		}
+		
+		Node temp = new Node(data);
+		temp.setNext(head);
+		setHead(temp);
+		return getHead();
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
 
 	public int getIndex(int data) {
 		if (head == null)

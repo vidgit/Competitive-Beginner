@@ -11,8 +11,11 @@ public class LinkedListSearch {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter value to be searched:\n Enter non number to exit.\n");
-		int t = 0;
+		searchList(list, br);
+	}
 
+	public static void searchList(LinkedList list, BufferedReader br) {
+		int t;
 		try {
 			while (true) {
 				t = Integer.parseInt(br.readLine());

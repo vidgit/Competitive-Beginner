@@ -13,7 +13,12 @@ public class LinkedListPrint {
 		{
 			list.add(i+1);
 		}
-		Node temp = list.getHead();
+		printList(list.getHead());
+	}
+	
+	public static void printList(Node head)
+	{
+		Node temp = head;
 		while(temp!=null)
 		{
 			System.out.print(temp.getData()+" ");
@@ -21,5 +26,4 @@ public class LinkedListPrint {
 		}
 		System.out.println(".");
 	}
-
 }
