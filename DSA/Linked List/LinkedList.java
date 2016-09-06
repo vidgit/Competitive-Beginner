@@ -122,19 +122,10 @@ class LinkedList {
 		else if(position == 0){
 			setHead(getHead().getNext());
 		}
-		
-		else if(position == size-1){
-			Node temp=head;
-			while(temp.getNext().getNext()!=null)
-			{
-				temp=temp.getNext();
-			}
-			temp.getNext().setNext(null);
-		}
 		else{
 			Node temp=head;
 			int i=0;
-			while(temp.getNext().getNext()!=null)
+			while(temp.getNext()!=null)
 			{
 				
 				if(i==position-1)
@@ -151,4 +142,5 @@ class LinkedList {
 		return getHead();
 		
 	}
+
 }
