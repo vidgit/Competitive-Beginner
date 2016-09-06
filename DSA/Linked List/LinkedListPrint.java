@@ -14,6 +14,7 @@ public class LinkedListPrint {
 			list.add(i+1);
 		}
 		printList(list.getHead());
+		printInReverse(list.getHead());
 	}
 	
 	public static void printList(Node head)
@@ -25,5 +26,15 @@ public class LinkedListPrint {
 			temp=temp.getNext();
 		}
 		System.out.println(".");
+	}
+	
+	public static void printInReverse(Node head){
+		Node temp = head;
+		String s="";
+		while(temp!=null){
+			s=temp.getData()+"\n"+s;
+			temp=temp.getNext();
+		}
+		System.out.println(s);
 	}
 }

@@ -142,5 +142,26 @@ class LinkedList {
 		return getHead();
 		
 	}
+	
+	public Node reverse(Node head){
+		if(head==null||head.getNext()==null)
+			return head;
+		
+		Node temp = head;
+		Node prev = null;
+		Node next = head.getNext();
+		
+		while(temp.getNext()!=null)
+		{
+			
+			next = temp.getNext();
+			temp.setNext(prev);
+			prev = temp;
+			temp = next;
+		}
+		temp.setNext(prev);
+		setHead(temp);
+		return head;
+	}
 
 }
