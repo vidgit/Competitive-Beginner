@@ -145,6 +145,11 @@ class LinkedList {
 	
 	public boolean deleteVal(int val){
 		Node temp = getHead(), prev = null;
+		if(temp!=null&&temp.getData()==val)
+		{
+			setHead(temp.getNext());
+			return true;
+		}
 		while(temp!=null&&temp.getData()!=val){
 			prev = temp;
 			temp = temp.getNext();
