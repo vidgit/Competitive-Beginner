@@ -143,6 +143,21 @@ class LinkedList {
 		
 	}
 	
+	public boolean deleteVal(int val){
+		Node temp = getHead(), prev = null;
+		while(temp!=null&&temp.getData()!=val){
+			prev = temp;
+			temp = temp.getNext();
+		}
+		if(temp == null)
+		{
+			return false;
+		}
+		
+		prev.setNext(temp.getNext());
+		return true;
+		
+	}
 	public Node reverse(Node head){
 		Node prev = null;
 	    Node current = head;
@@ -157,5 +172,5 @@ class LinkedList {
 	    setHead(prev);
 	    return getHead();
 	}
-
+	
 }
